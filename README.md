@@ -31,7 +31,7 @@ project/
 │   │   ├── app.js                 # Express app (middleware + route wiring)
 │   │   └── server.js              # entry point
 │   ├── postman_collection.json
-│   ├── .env.example
+│   ├── .env
 │   └── package.json
 ├── frontend/
 │   ├── index.html
