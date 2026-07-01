@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Task API Console</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="brand"><span class="brand-mark">&gt;_</span> Task API Console</span>
+    <div id="userChip" class="user-chip hidden">
+      <span id="userLabel"></span>
+      <button id="logoutBtn" class="btn-ghost">Log out</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- AUTH VIEW -->
+  <section id="authView" class="panel auth-panel">
+    <div class="auth-tabs">
+      <button class="tab-btn active" data-tab="login">Log in</button>
+      <button class="tab-btn" data-tab="register">Register</button>
+    </div>
+
+    <form id="loginForm" class="form">
+      <label>Email
+        <input type="email" id="loginEmail" required placeholder="jane@example.com" />
+      </label>
+      <label>Password
+        <input type="password" id="loginPassword" required placeholder="••••••••" />
+      </label>
+      <button type="submit" class="btn-primary">Log in</button>
+      <p class="hint">Try the seeded admin: <code>admin@example.com</code> / <code>AdminPass123!</code></p>
+    </form>
+
+    <form id="registerForm" class="form hidden">
+      <label>Name
+        <input type="text" id="registerName" required placeholder="Jane Doe" />
+      </label>
+      <label>Email
+        <input type="email" id="registerEmail" required placeholder="jane@example.com" />
+      </label>
+      <label>Password
+        <input type="password" id="registerPassword" required placeholder="min. 8 characters" />
+      </label>
+      <button type="submit" class="btn-primary">Create account</button>
+    </form>
+
+    <div id="authMessage" class="message hidden"></div>
+  </section>
+
+  <!-- DASHBOARD VIEW -->
+  <section id="dashboardView" class="hidden">
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2>New task</h2>
+      </div>
+      <form id="taskForm" class="form form-row">
+        <input type="text" id="taskTitle" placeholder="Task title" required />
+        <input type="text" id="taskDescription" placeholder="Description (optional)" />
+        <select id="taskStatus">
+          <option value="pending">pending</option>
+          <option value="in_progress">in_progress</option>
+          <option value="completed">completed</option>
+        </select>
+        <button type="submit" class="btn-primary">Add task</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2 id="taskListTitle">Your tasks</h2>
+        <button id="refreshBtn" class="btn-ghost">Refresh</button>
+      </div>
+      <div id="taskList" class="task-list"></div>
+      <p id="emptyState" class="empty-state hidden">No tasks yet — add one above.</p>
+    </div>
+
+    <div id="adminPanel" class="panel hidden">
+      <div class="panel-head">
+        <h2>Admin · All users</h2>
+      </div>
+      <div id="userList" class="task-list"></div>
+    </div>
+
+    <div id="dashMessage" class="message hidden"></div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  API base: <code id="apiBaseLabel"></code> &middot; Full docs at
+  <a id="swaggerLink" href="#" target="_blank">/api-docs</a>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
